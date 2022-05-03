@@ -15,58 +15,58 @@ class Locationsanschauffeur
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NBKMDEPART", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="NBKMDEPART", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $nbkmdepart = 'NULL';
+    private $nbkmdepart;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NBKMRETOUR", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="NBKMRETOUR", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $nbkmretour = 'NULL';
+    private $nbkmretour;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATELOCATION", type="date", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATELOCATION", type="date", nullable=true)
      */
-    private $datelocation = 'NULL';
+    private $datelocation;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="MONTANTREGLE", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="MONTANTREGLE", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $montantregle = 'NULL';
+    private $montantregle;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHREDEPARTPREVU", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHREDEPARTPREVU", type="datetime", nullable=true)
      */
-    private $datehredepartprevu = 'NULL';
+    private $datehredepartprevu;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHRERETOURPREVU", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHRERETOURPREVU", type="datetime", nullable=true)
      */
-    private $datehreretourprevu = 'NULL';
+    private $datehreretourprevu;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHREDEPARTREEL", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHREDEPARTREEL", type="datetime", nullable=true)
      */
-    private $datehredepartreel = 'NULL';
+    private $datehredepartreel;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHRERETOURREEL", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHRERETOURREEL", type="datetime", nullable=true)
      */
-    private $datehreretourreel = 'NULL';
+    private $datehreretourreel;
 
     /**
      * @var Location
@@ -80,146 +80,72 @@ class Locationsanschauffeur
      */
     private $numlocation;
 
-
-
-    /**
-     * Get the value of nbkmdepart
-     *
-     * @return  string|null
-     */ 
-    public function getNbkmdepart()
+    public function getNbkmdepart(): ?string
     {
         return $this->nbkmdepart;
     }
 
-    /**
-     * Set the value of nbkmdepart
-     *
-     * @param  string|null  $nbkmdepart
-     *
-     * @return  self
-     */ 
-    public function setNbkmdepart($nbkmdepart)
+    public function setNbkmdepart(?string $nbkmdepart): self
     {
         $this->nbkmdepart = $nbkmdepart;
 
         return $this;
     }
 
-    /**
-     * Get the value of nbkmretour
-     *
-     * @return  string|null
-     */ 
-    public function getNbkmretour()
+    public function getNbkmretour(): ?string
     {
         return $this->nbkmretour;
     }
 
-    /**
-     * Set the value of nbkmretour
-     *
-     * @param  string|null  $nbkmretour
-     *
-     * @return  self
-     */ 
-    public function setNbkmretour($nbkmretour)
+    public function setNbkmretour(?string $nbkmretour): self
     {
         $this->nbkmretour = $nbkmretour;
 
         return $this;
     }
 
-    /**
-     * Get the value of datelocation
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatelocation()
+    public function getDatelocation(): ?\DateTimeInterface
     {
         return $this->datelocation;
     }
 
-    /**
-     * Set the value of datelocation
-     *
-     * @param  \DateTime|null  $datelocation
-     *
-     * @return  self
-     */ 
-    public function setDatelocation($datelocation)
+    public function setDatelocation(?\DateTimeInterface $datelocation): self
     {
         $this->datelocation = $datelocation;
 
         return $this;
     }
 
-    /**
-     * Get the value of montantregle
-     *
-     * @return  string|null
-     */ 
-    public function getMontantregle()
+    public function getMontantregle(): ?string
     {
         return $this->montantregle;
     }
 
-    /**
-     * Set the value of montantregle
-     *
-     * @param  string|null  $montantregle
-     *
-     * @return  self
-     */ 
-    public function setMontantregle($montantregle)
+    public function setMontantregle(?string $montantregle): self
     {
         $this->montantregle = $montantregle;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehredepartprevu
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehredepartprevu()
+    public function getDatehredepartprevu(): ?\DateTimeInterface
     {
         return $this->datehredepartprevu;
     }
 
-    /**
-     * Set the value of datehredepartprevu
-     *
-     * @param  \DateTime|null  $datehredepartprevu
-     *
-     * @return  self
-     */ 
-    public function setDatehredepartprevu($datehredepartprevu)
+    public function setDatehredepartprevu(?\DateTimeInterface $datehredepartprevu): self
     {
         $this->datehredepartprevu = $datehredepartprevu;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehreretourprevu
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehreretourprevu()
+    public function getDatehreretourprevu(): ?\DateTimeInterface
     {
         return $this->datehreretourprevu;
     }
 
-    /**
-     * Set the value of datehreretourprevu
-     *
-     * @param  \DateTime|null  $datehreretourprevu
-     *
-     * @return  self
-     */ 
-    public function setDatehreretourprevu($datehreretourprevu)
+    public function setDatehreretourprevu(?\DateTimeInterface $datehreretourprevu): self
     {
         $this->datehreretourprevu = $datehreretourprevu;
 
@@ -261,4 +187,6 @@ class Locationsanschauffeur
 
         return $this;
     }
+
+
 }

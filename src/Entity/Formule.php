@@ -24,12 +24,12 @@ class Formule
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $libelle = 'NULL';
+    private $libelle;
 
     /**
-     * @var \Tarification
+     * @var Tarification
      *
      * @ORM\ManyToOne(targetEntity="Tarification")
      * @ORM\JoinColumns({
@@ -38,77 +38,34 @@ class Formule
      */
     private $idConcerner;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
-
-    /**
-     * Get the value of libelle
-     *
-     * @return  string|null
-     */ 
-    public function getLibelle()
+    public function getLibelle(): ?string
     {
         return $this->libelle;
     }
 
-    /**
-     * Set the value of libelle
-     *
-     * @param  string|null  $libelle
-     *
-     * @return  self
-     */ 
-    public function setLibelle($libelle)
+    public function setLibelle(?string $libelle): self
     {
         $this->libelle = $libelle;
 
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return  int
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @param  int  $id
-     *
-     * @return  self
-     */ 
-    public function setId(int $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of idConcerner
-     *
-     * @return  \Tarification
-     */ 
-    public function getIdConcerner()
+    public function getIdConcerner(): ?Tarification
     {
         return $this->idConcerner;
     }
 
-    /**
-     * Set the value of idConcerner
-     *
-     * @param  \Tarification  $idConcerner
-     *
-     * @return  self
-     */ 
-    public function setIdConcerner(Tarification $idConcerner)
+    public function setIdConcerner(?Tarification $idConcerner): self
     {
         $this->idConcerner = $idConcerner;
 
         return $this;
     }
+
+
 }

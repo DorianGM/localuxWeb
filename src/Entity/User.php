@@ -24,30 +24,30 @@ class User
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $nom = 'NULL';
+    private $nom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $prenom = 'NULL';
+    private $prenom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $login = 'NULL';
+    private $login;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    private $motdepasse = 'NULL';
+    private $motdepasse;
 
     public function getId(): ?int
     {

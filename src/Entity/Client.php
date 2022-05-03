@@ -15,89 +15,89 @@ class Client
     /**
      * @var int|null
      *
-     * @ORM\Column(name="TEL", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="TEL", type="integer", nullable=true)
      */
-    private $tel = NULL;
+    private $tel;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="EMAIL", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="EMAIL", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $email = 'NULL';
+    private $email;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="RUE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="RUE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $rue = 'NULL';
+    private $rue;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="CP", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="CP", type="integer", nullable=true)
      */
-    private $cp = NULL;
+    private $cp;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="VILLE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="VILLE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $ville = 'NULL';
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="NUMEROCARTEBANCAIRE", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $numerocartebancaire = NULL;
+    private $ville;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="DATEEXPIRATION", type="string", length=5, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="NUMEROCARTEBANCAIRE", type="string", length=16, nullable=true)
      */
-    private $dateexpiration = 'NULL';
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CRYTPOGRAMME", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $crytpogramme = NULL;
+    private $numerocartebancaire;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="DATEEXPIRATION", type="string", length=5, nullable=true, options={"fixed"=true})
      */
-    private $nom = 'NULL';
+    private $dateexpiration;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="CRYTPOGRAMME", type="string", length=3, nullable=true)
      */
-    private $prenom = 'NULL';
+    private $crytpogramme;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $login = 'NULL';
+    private $nom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $motdepasse = 'NULL';
+    private $prenom;
 
     /**
-     * @var \User
+     * @var string|null
+     *
+     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"fixed"=true})
+     */
+    private $login;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $motdepasse;
+
+    /**
+     * @var User
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -108,369 +108,161 @@ class Client
      */
     private $id;
 
-
-
-    /**
-     * Get the value of tel
-     *
-     * @return  int|null
-     */
-    public function getTel()
+    public function getTel(): ?int
     {
         return $this->tel;
     }
 
-    /**
-     * Set the value of tel
-     *
-     * @param  int|null  $tel
-     *
-     * @return  self
-     */
-    public function setTel($tel)
+    public function setTel(?int $tel): self
     {
         $this->tel = $tel;
 
         return $this;
     }
 
-    /**
-     * Get the value of email
-     *
-     * @return  string|null
-     */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     *
-     * @param  string|null  $email
-     *
-     * @return  self
-     */
-    public function setEmail($email)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    /**
-     * Get the value of rue
-     *
-     * @return  string|null
-     */
-    public function getRue()
+    public function getRue(): ?string
     {
         return $this->rue;
     }
 
-    /**
-     * Set the value of rue
-     *
-     * @param  string|null  $rue
-     *
-     * @return  self
-     */
-    public function setRue($rue)
+    public function setRue(?string $rue): self
     {
         $this->rue = $rue;
 
         return $this;
     }
 
-    /**
-     * Get the value of cp
-     *
-     * @return  int|null
-     */
-    public function getCp()
+    public function getCp(): ?int
     {
         return $this->cp;
     }
 
-    /**
-     * Set the value of cp
-     *
-     * @param  int|null  $cp
-     *
-     * @return  self
-     */
-    public function setCp($cp)
+    public function setCp(?int $cp): self
     {
         $this->cp = $cp;
 
         return $this;
     }
 
-    /**
-     * Get the value of numerocartebancaire
-     *
-     * @return  int|null
-     */
-    public function getNumerocartebancaire()
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getNumerocartebancaire(): ?string
     {
         return $this->numerocartebancaire;
     }
 
-    /**
-     * Set the value of numerocartebancaire
-     *
-     * @param  int|null  $numerocartebancaire
-     *
-     * @return  self
-     */
-    public function setNumerocartebancaire($numerocartebancaire)
+    public function setNumerocartebancaire(?string $numerocartebancaire): self
     {
         $this->numerocartebancaire = $numerocartebancaire;
 
         return $this;
     }
 
-    /**
-     * Get the value of dateexpiration
-     *
-     * @return  string|null
-     */
-    public function getDateexpiration()
+    public function getDateexpiration(): ?string
     {
         return $this->dateexpiration;
     }
 
-    /**
-     * Set the value of dateexpiration
-     *
-     * @param  string|null  $dateexpiration
-     *
-     * @return  self
-     */
-    public function setDateexpiration($dateexpiration)
+    public function setDateexpiration(?string $dateexpiration): self
     {
         $this->dateexpiration = $dateexpiration;
 
         return $this;
     }
 
-    /**
-     * Get the value of crytpogramme
-     *
-     * @return  int|null
-     */
-    public function getCrytpogramme()
+    public function getCrytpogramme(): ?string
     {
         return $this->crytpogramme;
     }
 
-    /**
-     * Set the value of crytpogramme
-     *
-     * @param  int|null  $crytpogramme
-     *
-     * @return  self
-     */
-    public function setCrytpogramme($crytpogramme)
+    public function setCrytpogramme(?string $crytpogramme): self
     {
         $this->crytpogramme = $crytpogramme;
 
         return $this;
     }
 
-    /**
-     * Get the value of nom
-     *
-     * @return  string|null
-     */
-    public function getNom()
+    public function getNom(): ?string
     {
         return $this->nom;
     }
 
-    /**
-     * Set the value of nom
-     *
-     * @param  string|null  $nom
-     *
-     * @return  self
-     */
-    public function setNom($nom)
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
         return $this;
     }
 
-    /**
-     * Get the value of prenom
-     *
-     * @return  string|null
-     */
-    public function getPrenom()
+    public function getPrenom(): ?string
     {
         return $this->prenom;
     }
 
-    /**
-     * Set the value of prenom
-     *
-     * @param  string|null  $prenom
-     *
-     * @return  self
-     */
-    public function setPrenom($prenom)
+    public function setPrenom(?string $prenom): self
     {
         $this->prenom = $prenom;
 
         return $this;
     }
 
-    /**
-     * Get the value of login
-     *
-     * @return  string|null
-     */
-    public function getLogin()
+    public function getLogin(): ?string
     {
         return $this->login;
     }
 
-    /**
-     * Set the value of login
-     *
-     * @param  string|null  $login
-     *
-     * @return  self
-     */
-    public function setLogin($login)
+    public function setLogin(?string $login): self
     {
         $this->login = $login;
 
         return $this;
     }
 
-    /**
-     * Get the value of motdepasse
-     *
-     * @return  string|null
-     */
-    public function getMotdepasse()
+    public function getMotdepasse(): ?string
     {
         return $this->motdepasse;
     }
 
-    /**
-     * Set the value of motdepasse
-     *
-     * @param  string|null  $motdepasse
-     *
-     * @return  self
-     */
-    public function setMotdepasse($motdepasse)
+    public function setMotdepasse(?string $motdepasse): self
     {
         $this->motdepasse = $motdepasse;
 
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return  \User
-     */
-    public function getId()
+    public function getId(): ?User
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param  \User  $id
-     *
-     * @return  self
-     */
-    public function setId(User $id)
+    public function setId(?User $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @ORM\Column(type="json") */
-    private $roles = [];
-    /**
-     * A visual identifier that represents this user. * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->login;
-    }
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER $roles[] = 'ROLE_USER';
-        return array_unique($roles);
-    }
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-        return $this;
-    }
-    /**
-     * @see PasswordAuthenticatedUserInterface */
-    public function getPassword(): string
-    {
-        // à remplacer éventuellement par la propriété contenant le mot de passe
-        return $this->motdepasse;
-    }
 
-    public function setPassword(string $motdepasse): self
-    {
-        // à remplacer éventuellement par la propriété contenant le mot de passe
-        $this->motdepasse = $motdepasse;
-        return $this;
-    }
-    /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml. *
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
-    /**
-     * @see UserInterface */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it he // $this->plainPassword = null;
-    }
-
-
-    /**
-     * Get the value of ville
-     *
-     * @return  string|null
-     */
-    public function getVille()
-    {
-        return $this->ville;
-    }
-
-    /**
-     * Set the value of ville
-     *
-     * @param  string|null  $ville
-     *
-     * @return  self
-     */
-    public function setVille($ville)
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
 }

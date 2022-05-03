@@ -24,57 +24,47 @@ class Location
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATELOCATION", type="date", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATELOCATION", type="date", nullable=true)
      */
-    private $datelocation = 'NULL';
+    private $datelocation;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="MONTANTREGLE", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="MONTANTREGLE", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $montantregle = 'NULL';
+    private $montantregle;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHREDEPARTPREVU", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHREDEPARTPREVU", type="datetime", nullable=true)
      */
-    private $datehredepartprevu = 'NULL';
+    private $datehredepartprevu;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHRERETOURPREVU", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHRERETOURPREVU", type="datetime", nullable=true)
      */
-    private $datehreretourprevu = 'NULL';
+    private $datehreretourprevu;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHREDEPARTREEL", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHREDEPARTREEL", type="datetime", nullable=true)
      */
-    private $datehredepartreel = 'NULL';
+    private $datehredepartreel;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATEHRERETOURREEL", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DATEHRERETOURREEL", type="datetime", nullable=true)
      */
-    private $datehreretourreel = 'NULL';
+    private $datehreretourreel;
 
     /**
-     * @var \Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IMMATRICULATION", referencedColumnName="IMMATRICULATION")
-     * })
-     */
-    private $immatriculation;
-
-    /**
-     * @var \Client
+     * @var Client
      *
      * @ORM\ManyToOne(targetEntity="Client")
      * @ORM\JoinColumns({
@@ -83,221 +73,116 @@ class Location
      */
     private $id;
 
-
-
     /**
-     * Get the value of numlocation
+     * @var Vehicule
      *
-     * @return  int
-     */ 
-    public function getNumlocation()
+     * @ORM\ManyToOne(targetEntity="Vehicule")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IMMATRICULATION", referencedColumnName="IMMATRICULATION")
+     * })
+     */
+    private $immatriculation;
+
+    public function getNumlocation(): ?int
     {
         return $this->numlocation;
     }
 
-    /**
-     * Set the value of numlocation
-     *
-     * @param  int  $numlocation
-     *
-     * @return  self
-     */ 
-    public function setNumlocation(int $numlocation)
-    {
-        $this->numlocation = $numlocation;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of datelocation
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatelocation()
+    public function getDatelocation(): ?\DateTimeInterface
     {
         return $this->datelocation;
     }
 
-    /**
-     * Set the value of datelocation
-     *
-     * @param  \DateTime|null  $datelocation
-     *
-     * @return  self
-     */ 
-    public function setDatelocation($datelocation)
+    public function setDatelocation(?\DateTimeInterface $datelocation): self
     {
         $this->datelocation = $datelocation;
 
         return $this;
     }
 
-    /**
-     * Get the value of montantregle
-     *
-     * @return  string|null
-     */ 
-    public function getMontantregle()
+    public function getMontantregle(): ?string
     {
         return $this->montantregle;
     }
 
-    /**
-     * Set the value of montantregle
-     *
-     * @param  string|null  $montantregle
-     *
-     * @return  self
-     */ 
-    public function setMontantregle($montantregle)
+    public function setMontantregle(?string $montantregle): self
     {
         $this->montantregle = $montantregle;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehredepartprevu
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehredepartprevu()
+    public function getDatehredepartprevu(): ?\DateTimeInterface
     {
         return $this->datehredepartprevu;
     }
 
-    /**
-     * Set the value of datehredepartprevu
-     *
-     * @param  \DateTime|null  $datehredepartprevu
-     *
-     * @return  self
-     */ 
-    public function setDatehredepartprevu($datehredepartprevu)
+    public function setDatehredepartprevu(?\DateTimeInterface $datehredepartprevu): self
     {
         $this->datehredepartprevu = $datehredepartprevu;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehreretourprevu
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehreretourprevu()
+    public function getDatehreretourprevu(): ?\DateTimeInterface
     {
         return $this->datehreretourprevu;
     }
 
-    /**
-     * Set the value of datehreretourprevu
-     *
-     * @param  \DateTime|null  $datehreretourprevu
-     *
-     * @return  self
-     */ 
-    public function setDatehreretourprevu($datehreretourprevu)
+    public function setDatehreretourprevu(?\DateTimeInterface $datehreretourprevu): self
     {
         $this->datehreretourprevu = $datehreretourprevu;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehredepartreel
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehredepartreel()
+    public function getDatehredepartreel(): ?\DateTimeInterface
     {
         return $this->datehredepartreel;
     }
 
-    /**
-     * Set the value of datehredepartreel
-     *
-     * @param  \DateTime|null  $datehredepartreel
-     *
-     * @return  self
-     */ 
-    public function setDatehredepartreel($datehredepartreel)
+    public function setDatehredepartreel(?\DateTimeInterface $datehredepartreel): self
     {
         $this->datehredepartreel = $datehredepartreel;
 
         return $this;
     }
 
-    /**
-     * Get the value of datehreretourreel
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDatehreretourreel()
+    public function getDatehreretourreel(): ?\DateTimeInterface
     {
         return $this->datehreretourreel;
     }
 
-    /**
-     * Set the value of datehreretourreel
-     *
-     * @param  \DateTime|null  $datehreretourreel
-     *
-     * @return  self
-     */ 
-    public function setDatehreretourreel($datehreretourreel)
+    public function setDatehreretourreel(?\DateTimeInterface $datehreretourreel): self
     {
         $this->datehreretourreel = $datehreretourreel;
 
         return $this;
     }
 
-    /**
-     * Get the value of immatriculation
-     *
-     * @return  \Vehicule
-     */ 
-    public function getImmatriculation()
+    public function getId(): ?Client
+    {
+        return $this->id;
+    }
+
+    public function setId(?Client $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getImmatriculation(): ?Vehicule
     {
         return $this->immatriculation;
     }
 
-    /**
-     * Set the value of immatriculation
-     *
-     * @param  \Vehicule  $immatriculation
-     *
-     * @return  self
-     */ 
-    public function setImmatriculation(Vehicule $immatriculation)
+    public function setImmatriculation(?Vehicule $immatriculation): self
     {
         $this->immatriculation = $immatriculation;
 
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return  \Client
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set the value of id
-     *
-     * @param  \Client  $id
-     *
-     * @return  self
-     */ 
-    public function setId(Client $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 }

@@ -15,26 +15,26 @@ class Formulesanschauffeur
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DUREE", type="time", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="DUREE", type="time", nullable=true)
      */
-    private $duree = 'NULL';
+    private $duree;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NBKMSINCLUS", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="NBKMSINCLUS", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $nbkmsinclus = 'NULL';
+    private $nbkmsinclus;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $libelle = 'NULL';
+    private $libelle;
 
     /**
-     * @var \Formule
+     * @var Formule
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -45,101 +45,53 @@ class Formulesanschauffeur
      */
     private $id;
 
-
-
-    /**
-     * Get the value of duree
-     *
-     * @return  \DateTime|null
-     */ 
-    public function getDuree()
+    public function getDuree(): ?\DateTimeInterface
     {
         return $this->duree;
     }
 
-    /**
-     * Set the value of duree
-     *
-     * @param  \DateTime|null  $duree
-     *
-     * @return  self
-     */ 
-    public function setDuree($duree)
+    public function setDuree(?\DateTimeInterface $duree): self
     {
         $this->duree = $duree;
 
         return $this;
     }
 
-    /**
-     * Get the value of nbkmsinclus
-     *
-     * @return  string|null
-     */ 
-    public function getNbkmsinclus()
+    public function getNbkmsinclus(): ?string
     {
         return $this->nbkmsinclus;
     }
 
-    /**
-     * Set the value of nbkmsinclus
-     *
-     * @param  string|null  $nbkmsinclus
-     *
-     * @return  self
-     */ 
-    public function setNbkmsinclus($nbkmsinclus)
+    public function setNbkmsinclus(?string $nbkmsinclus): self
     {
         $this->nbkmsinclus = $nbkmsinclus;
 
         return $this;
     }
 
-    /**
-     * Get the value of libelle
-     *
-     * @return  string|null
-     */ 
-    public function getLibelle()
+    public function getLibelle(): ?string
     {
         return $this->libelle;
     }
 
-    /**
-     * Set the value of libelle
-     *
-     * @param  string|null  $libelle
-     *
-     * @return  self
-     */ 
-    public function setLibelle($libelle)
+    public function setLibelle(?string $libelle): self
     {
         $this->libelle = $libelle;
 
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return  \Formule
-     */ 
-    public function getId()
+    public function getId(): ?Formule
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param  \Formule  $id
-     *
-     * @return  self
-     */ 
-    public function setId(Formule $id)
+    public function setId(?Formule $id): self
     {
         $this->id = $id;
 
         return $this;
     }
+
+
 }

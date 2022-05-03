@@ -15,26 +15,26 @@ class Formuleavecchauffeur
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LIEU", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LIEU", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $lieu = 'NULL';
+    private $lieu;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="TARIF", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="TARIF", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $tarif = 'NULL';
+    private $tarif;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $libelle = 'NULL';
+    private $libelle;
 
     /**
-     * @var \Formule
+     * @var Formule
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -45,101 +45,53 @@ class Formuleavecchauffeur
      */
     private $id;
 
-
-
-    /**
-     * Get the value of lieu
-     *
-     * @return  string|null
-     */ 
-    public function getLieu()
+    public function getLieu(): ?string
     {
         return $this->lieu;
     }
 
-    /**
-     * Set the value of lieu
-     *
-     * @param  string|null  $lieu
-     *
-     * @return  self
-     */ 
-    public function setLieu($lieu)
+    public function setLieu(?string $lieu): self
     {
         $this->lieu = $lieu;
 
         return $this;
     }
 
-    /**
-     * Get the value of tarif
-     *
-     * @return  string|null
-     */ 
-    public function getTarif()
+    public function getTarif(): ?string
     {
         return $this->tarif;
     }
 
-    /**
-     * Set the value of tarif
-     *
-     * @param  string|null  $tarif
-     *
-     * @return  self
-     */ 
-    public function setTarif($tarif)
+    public function setTarif(?string $tarif): self
     {
         $this->tarif = $tarif;
 
         return $this;
     }
 
-    /**
-     * Get the value of libelle
-     *
-     * @return  string|null
-     */ 
-    public function getLibelle()
+    public function getLibelle(): ?string
     {
         return $this->libelle;
     }
 
-    /**
-     * Set the value of libelle
-     *
-     * @param  string|null  $libelle
-     *
-     * @return  self
-     */ 
-    public function setLibelle($libelle)
+    public function setLibelle(?string $libelle): self
     {
         $this->libelle = $libelle;
 
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return  \Formule
-     */ 
-    public function getId()
+    public function getId(): ?Formule
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param  \Formule  $id
-     *
-     * @return  self
-     */ 
-    public function setId(Formule $id)
+    public function setId(?Formule $id): self
     {
         $this->id = $id;
 
         return $this;
     }
+
+
 }

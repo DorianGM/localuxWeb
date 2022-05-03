@@ -24,19 +24,9 @@ class Modele
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"default"="NULL","fixed"=true})
+     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $libelle = 'NULL';
-
-    /**
-     * @var Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IMMATRICULATION", referencedColumnName="IMMATRICULATION")
-     * })
-     */
-    private $immatriculation;
+    private $libelle;
 
     /**
      * @var Tarification
@@ -47,6 +37,16 @@ class Modele
      * })
      */
     private $idPayer;
+
+    /**
+     * @var Vehicule
+     *
+     * @ORM\ManyToOne(targetEntity="Vehicule")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IMMATRICULATION", referencedColumnName="IMMATRICULATION")
+     * })
+     */
+    private $immatriculation;
 
     public function getId(): ?int
     {
@@ -65,18 +65,6 @@ class Modele
         return $this;
     }
 
-    public function getImmatriculation(): ?Vehicule
-    {
-        return $this->immatriculation;
-    }
-
-    public function setImmatriculation(?Vehicule $immatriculation): self
-    {
-        $this->immatriculation = $immatriculation;
-
-        return $this;
-    }
-
     public function getIdPayer(): ?Tarification
     {
         return $this->idPayer;
@@ -85,6 +73,18 @@ class Modele
     public function setIdPayer(?Tarification $idPayer): self
     {
         $this->idPayer = $idPayer;
+
+        return $this;
+    }
+
+    public function getImmatriculation(): ?Vehicule
+    {
+        return $this->immatriculation;
+    }
+
+    public function setImmatriculation(?Vehicule $immatriculation): self
+    {
+        $this->immatriculation = $immatriculation;
 
         return $this;
     }

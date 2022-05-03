@@ -24,9 +24,9 @@ class Tarification
     /**
      * @var string|null
      *
-     * @ORM\Column(name="TARIF", type="decimal", precision=10, scale=2, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="TARIF", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $tarif = 'NULL';
+    private $tarif;
 
     public function getId(): ?int
     {
