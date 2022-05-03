@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localux{% endblock %}
+
+{% block body %}    
+  <section class="vh-100" style="margin-left:25rem; margin-right:25rem;">
+		<form action="{{path('accueil')}}" method="post">
+
+			<div class="align-items-center mb-3 pb-1" style="margin-top:1rem;">
+        		<center>
+				  <p class="h1 fw-bold">Page d'inscription</p>
+        		</center>
+			</div>
+
+			<h5 style="letter-spacing: 1px;">Connectez vous</h5>
+      		<br>
+			<div class="form-outline mb-4">
+				<input type="email" id="form2Example17" name="_username" class="form-control form-control-lg" style="margin-bottom:10px;"/>
+				<label class="form-label" for="form2Example17">Identifiant</label>
+			</div>
+
+			<div class="form-outline mb-4">
+				<input type="password" id="form2Example27" name="_password" class="form-control form-control-lg" style="margin-bottom:10px;"/>
+				<label class="form-label" for="form2Example27">Mot de Passe</label>
+			</div>
+
+			<div class="pt-1 mb-4">
+				<button class="btn btn-dark btn-lg btn-block" type="submit">Se connecter</button>
+			</div>
+		</form>
+	</section>
+
+{% endblock %}

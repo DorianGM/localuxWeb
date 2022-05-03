@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Formule
  *
  * @ORM\Table(name="FORMULE", indexes={@ORM\Index(name="I_FK_FORMULE_TARIFICATION", columns={"ID_CONCERNER"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=App\Repository\FormuleRepository::class)
  */
 class Formule
 {

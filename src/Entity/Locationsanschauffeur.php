@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Locationsanschauffeur
  *
  * @ORM\Table(name="LOCATIONSANSCHAUFFEUR")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=App\Repository\LocationsanschauffeurRepository::class)
  */
 class Locationsanschauffeur
 {
