@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\FormuleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

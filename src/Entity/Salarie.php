@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\SalarieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="SALARIE")
  * @ORM\Entity(repositoryClass=App\Repository\SalarieRepository::class)
  */
-class Salarie
+class Salarie extends User
 {
     /**
      * @var string|null
@@ -46,18 +47,6 @@ class Salarie
      * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $motdepasse;
-
-    /**
-     * @var User
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="ID")
-     * })
-     */
-    private $id;
 
     public function getPoste(): ?string
     {
@@ -107,26 +96,14 @@ class Salarie
         return $this;
     }
 
-    public function getMotdepasse(): ?string
+    public function getPassword(): ?string
     {
         return $this->motdepasse;
     }
 
-    public function setMotdepasse(?string $motdepasse): self
+    public function setPassword(?string $motdepasse): self
     {
         $this->motdepasse = $motdepasse;
-
-        return $this;
-    }
-
-    public function getId(): ?User
-    {
-        return $this->id;
-    }
-
-    public function setId(?User $id): self
-    {
-        $this->id = $id;
 
         return $this;
     }

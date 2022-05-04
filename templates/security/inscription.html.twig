@@ -2,32 +2,56 @@
 
 {% block title %}Localux{% endblock %}
 
-{% block body %}    
-  <section class="vh-100" style="margin-left:25rem; margin-right:25rem;">
-		<form action="{{path('accueil')}}" method="post">
 
-			<div class="align-items-center mb-3 pb-1" style="margin-top:1rem;">
-        		<center>
-				  <p class="h1 fw-bold">Page d'inscription</p>
-        		</center>
-			</div>
 
-			<h5 style="letter-spacing: 1px;">Connectez vous</h5>
-      		<br>
-			<div class="form-outline mb-4">
-				<input type="email" id="form2Example17" name="_username" class="form-control form-control-lg" style="margin-bottom:10px;"/>
-				<label class="form-label" for="form2Example17">Identifiant</label>
-			</div>
+{% block body %}  
+<link rel="stylesheet" href="{{ asset('styles/login.css')}}">
+ 
 
-			<div class="form-outline mb-4">
-				<input type="password" id="form2Example27" name="_password" class="form-control form-control-lg" style="margin-bottom:10px;"/>
-				<label class="form-label" for="form2Example27">Mot de Passe</label>
-			</div>
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
 
-			<div class="pt-1 mb-4">
-				<button class="btn btn-dark btn-lg btn-block" type="submit">Se connecter</button>
-			</div>
-		</form>
-	</section>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Inscription</h4>
+                                            {{form_start(form)}}
+											<div class="form-group">
+												<input type="text" name="form[nom]" class="form-style" placeholder="Nom" id="form_nom" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="text" name="form[prenom]" class="form-style" placeholder="Prénom" id="form_prenom" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="email" name="form[email]" class="form-style" placeholder="Adresse mail" id="form_email" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="text" name="form[login]" class="form-style" placeholder="Identifiant" id="form_login" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="form[password]" class="form-style" placeholder="Mot de passe" id="form_password" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<button class="btn mt-4" type="submit">Inscription</button>
+                                            {{ form_end(form) }}
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
 
 {% endblock %}

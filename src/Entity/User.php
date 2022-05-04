@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="USER")
  * @ORM\Entity(repositoryClass=App\Repository\UserRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "client" = "Client", "salarie" = "Salarie"})
  */
 class User
 {
@@ -90,17 +94,21 @@ class User
         return $this;
     }
 
-    public function getMotdepasse(): ?string
+    public function getPassword(): ?string
     {
         return $this->motdepasse;
     }
 
-    public function setMotdepasse(?string $motdepasse): self
+    public function setPassword(?string $motdepasse): self
     {
         $this->motdepasse = $motdepasse;
 
         return $this;
     }
+    public function __toString()
+{
+    return (string) $this->getLogin();
+}
 
 
 }

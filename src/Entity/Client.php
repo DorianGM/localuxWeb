@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+use App\Repository\ClientRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * Client
@@ -10,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="CLIENT")
  * @ORM\Entity(repositoryClass=App\Repository\ClientRepository::class)
  */
-class Client
+class Client extends User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @var int|null
@@ -97,16 +101,15 @@ class Client
     private $motdepasse;
 
     /**
-     * @var User
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="ID")
-     * })
+     * @ORM\Column(type="json") */
+    private $roles = [];
+    /**
+     * A visual identifier that represents this user. * @see UserInterface
      */
-    private $id;
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->login;
+    }
 
     public function getTel(): ?int
     {
@@ -240,29 +243,43 @@ class Client
         return $this;
     }
 
-    public function getMotdepasse(): ?string
+    public function getPassword(): ?string
     {
         return $this->motdepasse;
     }
 
-    public function setMotdepasse(?string $motdepasse): self
+    public function setPassword(?string $motdepasse): self
     {
         $this->motdepasse = $motdepasse;
 
         return $this;
     }
 
-    public function getId(): ?User
+    public function getRoles(): array
     {
-        return $this->id;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER $roles[] = 'ROLE_USER';
+        return array_unique($roles);
     }
-
-    public function setId(?User $id): self
+    public function setRoles(array $roles): self
     {
-        $this->id = $id;
-
+        $this->roles = $roles;
         return $this;
     }
 
-
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml. *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+    /**
+     * @see UserInterface */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it he // $this->plainPassword = null;
+    }
 }

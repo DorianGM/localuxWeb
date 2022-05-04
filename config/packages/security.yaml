@@ -22,7 +22,7 @@ security:
                 check_path: security_login
             logout: 
                 path: security_logout
-                target: index
+                target: /
             lazy: true
             provider: app_user_provider
 

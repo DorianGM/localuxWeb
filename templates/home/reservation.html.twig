@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localux{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('styles/reservation.css')}}">
+    <ul class="cards">
+  <li>
+    <a href="{{path('formuleReservation')}}" class="card">
+      <img src="{{ asset('img/forfait_4h.jpg')}}" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Formule "Forfait 4h"</h3>            
+            <span class="card__status">(Sans chauffeur)</span>
+          </div>
+        </div>
+        <p class="card__description">Ce forfait donne droit à 4h pour un forfait (nombre de kilomètres inclus) de 150 kilomètres </p>
+      </div>
+    </a>      
+  </li>
+  <li>
+    <a href="" class="card">
+      <img src="{{ asset('img/forfait_24h.jpg')}}" class="card__image" alt="" />
+      <div class="card__overlay">        
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+          <div class="card__header-text">
+            <h3 class="card__title">Formule "Forfait 24h"</h3>
+            <span class="card__status">(Sans chauffeur)</span>
+          </div>
+        </div>
+        <p class="card__description">Ce forfait donne droit à 24h pour un forfait (nombre de kilomètres inclus) de 300 kilomètres</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="" class="card">
+      <img src="{{ asset('img/forfait_48h.jpg')}}" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Formule "Forfait 48h"</h3>           
+            <span class="card__status">(Sans chauffeur)</span>
+          </div>
+        </div>
+        <p class="card__description">Ce forfait donne droit à 48h pour un forfait (nombre de kilomètres inclus) de 700 kilomètres</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="" class="card">
+      <img src="{{ asset('img/forfait_chauffeur.jpg')}}" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Formule "Forfait 24h"</h3>            
+            <span class="card__status">(Avec chauffeur)</span>
+          </div>
+        </div>
+        <p class="card__description">Ce forfait donne droit à 24h pour un forfait avec chauffeur </p>
+      </div>
+    </a>      
+  </li>
+</ul>
+{% endblock %}
