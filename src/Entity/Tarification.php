@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\TarificationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,22 +28,53 @@ class Tarification
      */
     private $tarif;
 
-    public function getId(): ?int
+
+
+    /**
+     * Get the value of id
+     *
+     * @return  int
+     */ 
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getTarif(): ?string
+    /**
+     * Set the value of id
+     *
+     * @param  int  $id
+     *
+     * @return  self
+     */ 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tarif
+     *
+     * @return  string|null
+     */ 
+    public function getTarif()
     {
         return $this->tarif;
     }
 
-    public function setTarif(?string $tarif): self
+    /**
+     * Set the value of tarif
+     *
+     * @param  string|null  $tarif
+     *
+     * @return  self
+     */ 
+    public function setTarif($tarif)
     {
         $this->tarif = $tarif;
 
         return $this;
     }
-
-
 }

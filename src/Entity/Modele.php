@@ -2,13 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ModeleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Modele
  *
- * @ORM\Table(name="MODELE", indexes={@ORM\Index(name="I_FK_MODELE_TARIFICATION", columns={"ID_PAYER"}), @ORM\Index(name="I_FK_MODELE_VEHICULE", columns={"IMMATRICULATION"})})
+ * @ORM\Table(name="MODELE", indexes={@ORM\Index(name="I_FK_MODELE_TARIFICATION", columns={"IDTARIFICATION"})})
  * @ORM\Entity(repositoryClass=App\Repository\ModeleRepository::class)
  */
 class Modele
@@ -34,61 +33,82 @@ class Modele
      *
      * @ORM\ManyToOne(targetEntity="Tarification")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_PAYER", referencedColumnName="ID")
+     *   @ORM\JoinColumn(name="IDTARIFICATION", referencedColumnName="ID")
      * })
      */
-    private $idPayer;
+    private $idtarification;
+
+
 
     /**
-     * @var Vehicule
+     * Get the value of id
      *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IMMATRICULATION", referencedColumnName="IMMATRICULATION")
-     * })
-     */
-    private $immatriculation;
-
-    public function getId(): ?int
+     * @return  int
+     */ 
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getLibelle(): ?string
+    /**
+     * Set the value of id
+     *
+     * @param  int  $id
+     *
+     * @return  self
+     */ 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of libelle
+     *
+     * @return  string|null
+     */ 
+    public function getLibelle()
     {
         return $this->libelle;
     }
 
-    public function setLibelle(?string $libelle): self
+    /**
+     * Set the value of libelle
+     *
+     * @param  string|null  $libelle
+     *
+     * @return  self
+     */ 
+    public function setLibelle($libelle)
     {
         $this->libelle = $libelle;
 
         return $this;
     }
 
-    public function getIdPayer(): ?Tarification
+    /**
+     * Get the value of idtarification
+     *
+     * @return  \Tarification
+     */ 
+    public function getIdtarification()
     {
-        return $this->idPayer;
+        return $this->idtarification;
     }
 
-    public function setIdPayer(?Tarification $idPayer): self
+    /**
+     * Set the value of idtarification
+     *
+     * @param  \Tarification  $idtarification
+     *
+     * @return  self
+     */ 
+    public function setIdtarification(Tarification $idtarification)
     {
-        $this->idPayer = $idPayer;
+        $this->idtarification = $idtarification;
 
         return $this;
     }
-
-    public function getImmatriculation(): ?Vehicule
-    {
-        return $this->immatriculation;
-    }
-
-    public function setImmatriculation(?Vehicule $immatriculation): self
-    {
-        $this->immatriculation = $immatriculation;
-
-        return $this;
-    }
-
-
 }

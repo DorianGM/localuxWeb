@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\FormulaireavecchauffeurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Formuleavecchauffeur
  *
- * @ORM\Table(name="FORMULEAVECCHAUFFEUR")
- * @ORM\Entity(repositoryClass=App\Repository\FormulaireavecchauffeurRepository::class)
+ * @ORM\Table(name="FORMULEAVECCHAUFFEUR", indexes={@ORM\Index(name="IDX_92CC0F7E1781CD3", columns={"ID_LOCATIONAVEC"})})
+ * @ORM\Entity(repositoryClass=App\Repository\FormuleavecchauffeurRepository::class)
  */
-class Formuleavecchauffeur
+class Formuleavecchauffeur extends Formule
 {
     /**
      * @var string|null
@@ -27,72 +26,91 @@ class Formuleavecchauffeur
      */
     private $tarif;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $libelle;
+
 
     /**
-     * @var Formule
+     * @var Locationavecchauffeur
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Formule")
+     * @ORM\ManyToOne(targetEntity="Locationavecchauffeur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="ID")
+     *   @ORM\JoinColumn(name="ID_LOCATIONAVEC", referencedColumnName="NUMLOCATION")
      * })
      */
-    private $id;
+    private $idLocationavec;
 
-    public function getLieu(): ?string
+
+
+    /**
+     * Get the value of lieu
+     *
+     * @return  string|null
+     */ 
+    public function getLieu()
     {
         return $this->lieu;
     }
 
-    public function setLieu(?string $lieu): self
+    /**
+     * Set the value of lieu
+     *
+     * @param  string|null  $lieu
+     *
+     * @return  self
+     */ 
+    public function setLieu($lieu)
     {
         $this->lieu = $lieu;
 
         return $this;
     }
 
-    public function getTarif(): ?string
+    /**
+     * Get the value of tarif
+     *
+     * @return  string|null
+     */ 
+    public function getTarif()
     {
         return $this->tarif;
     }
 
-    public function setTarif(?string $tarif): self
+    /**
+     * Set the value of tarif
+     *
+     * @param  string|null  $tarif
+     *
+     * @return  self
+     */ 
+    public function setTarif($tarif)
     {
         $this->tarif = $tarif;
 
         return $this;
     }
 
-    public function getLibelle(): ?string
+    
+
+    /**
+     * Get the value of idLocationavec
+     *
+     * @return  Locationavecchauffeur
+     */ 
+    public function getIdLocationavec()
     {
-        return $this->libelle;
+        return $this->idLocationavec;
     }
 
-    public function setLibelle(?string $libelle): self
+    /**
+     * Set the value of idLocationavec
+     *
+     * @param  Locationavecchauffeur  $idLocationavec
+     *
+     * @return  self
+     */ 
+    public function setIdLocationavec(Locationavecchauffeur $idLocationavec)
     {
-        $this->libelle = $libelle;
+        $this->idLocationavec = $idLocationavec;
 
         return $this;
     }
-
-    public function getId(): ?Formule
-    {
-        return $this->id;
-    }
-
-    public function setId(?Formule $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-
 }

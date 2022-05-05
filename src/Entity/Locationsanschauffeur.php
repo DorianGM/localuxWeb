@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\LocationsanschauffeurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="LOCATIONSANSCHAUFFEUR")
  * @ORM\Entity(repositoryClass=App\Repository\LocationsanschauffeurRepository::class)
  */
-class Locationsanschauffeur
+class Locationsanschauffeur extends Location
 {
     /**
      * @var string|null
@@ -41,19 +40,7 @@ class Locationsanschauffeur
      */
     private $montantregle;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHREDEPARTPREVU", type="datetime", nullable=true)
-     */
-    private $datehredepartprevu;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHRERETOURPREVU", type="datetime", nullable=true)
-     */
-    private $datehreretourprevu;
+    
 
     /**
      * @var \DateTime|null
@@ -70,124 +57,123 @@ class Locationsanschauffeur
     private $datehreretourreel;
 
     /**
-     * @var Location
+     * Get the value of nbkmdepart
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Location")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="NUMLOCATION", referencedColumnName="NUMLOCATION")
-     * })
-     */
-    private $numlocation;
-
-    public function getNbkmdepart(): ?string
+     * @return  string|null
+     */ 
+    public function getNbkmdepart()
     {
         return $this->nbkmdepart;
     }
 
-    public function setNbkmdepart(?string $nbkmdepart): self
+    /**
+     * Set the value of nbkmdepart
+     *
+     * @param  string|null  $nbkmdepart
+     *
+     * @return  self
+     */ 
+    public function setNbkmdepart($nbkmdepart)
     {
         $this->nbkmdepart = $nbkmdepart;
 
         return $this;
     }
 
-    public function getNbkmretour(): ?string
+    /**
+     * Get the value of nbkmretour
+     *
+     * @return  string|null
+     */ 
+    public function getNbkmretour()
     {
         return $this->nbkmretour;
     }
 
-    public function setNbkmretour(?string $nbkmretour): self
+    /**
+     * Set the value of nbkmretour
+     *
+     * @param  string|null  $nbkmretour
+     *
+     * @return  self
+     */ 
+    public function setNbkmretour($nbkmretour)
     {
         $this->nbkmretour = $nbkmretour;
 
         return $this;
     }
 
-    public function getDatelocation(): ?\DateTimeInterface
-    {
-        return $this->datelocation;
-    }
-
-    public function setDatelocation(?\DateTimeInterface $datelocation): self
-    {
-        $this->datelocation = $datelocation;
-
-        return $this;
-    }
-
-    public function getMontantregle(): ?string
+    /**
+     * Get the value of montantregle
+     *
+     * @return  string|null
+     */ 
+    public function getMontantregle()
     {
         return $this->montantregle;
     }
 
-    public function setMontantregle(?string $montantregle): self
+    /**
+     * Set the value of montantregle
+     *
+     * @param  string|null  $montantregle
+     *
+     * @return  self
+     */ 
+    public function setMontantregle($montantregle)
     {
         $this->montantregle = $montantregle;
 
         return $this;
     }
 
-    public function getDatehredepartprevu(): ?\DateTimeInterface
-    {
-        return $this->datehredepartprevu;
-    }
-
-    public function setDatehredepartprevu(?\DateTimeInterface $datehredepartprevu): self
-    {
-        $this->datehredepartprevu = $datehredepartprevu;
-
-        return $this;
-    }
-
-    public function getDatehreretourprevu(): ?\DateTimeInterface
-    {
-        return $this->datehreretourprevu;
-    }
-
-    public function setDatehreretourprevu(?\DateTimeInterface $datehreretourprevu): self
-    {
-        $this->datehreretourprevu = $datehreretourprevu;
-
-        return $this;
-    }
-
-    public function getDatehredepartreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehredepartreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehredepartreel()
     {
         return $this->datehredepartreel;
     }
 
-    public function setDatehredepartreel(?\DateTimeInterface $datehredepartreel): self
+    /**
+     * Set the value of datehredepartreel
+     *
+     * @param  \DateTime|null  $datehredepartreel
+     *
+     * @return  self
+     */ 
+    public function setDatehredepartreel($datehredepartreel)
     {
         $this->datehredepartreel = $datehredepartreel;
 
         return $this;
     }
 
-    public function getDatehreretourreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehreretourreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehreretourreel()
     {
         return $this->datehreretourreel;
     }
 
-    public function setDatehreretourreel(?\DateTimeInterface $datehreretourreel): self
+    /**
+     * Set the value of datehreretourreel
+     *
+     * @param  \DateTime|null  $datehreretourreel
+     *
+     * @return  self
+     */ 
+    public function setDatehreretourreel($datehreretourreel)
     {
         $this->datehreretourreel = $datehreretourreel;
 
         return $this;
     }
-
-    public function getNumlocation(): ?Location
-    {
-        return $this->numlocation;
-    }
-
-    public function setNumlocation(?Location $numlocation): self
-    {
-        $this->numlocation = $numlocation;
-
-        return $this;
-    }
-
 
 }

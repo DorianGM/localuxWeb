@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\LocationavecchauffeurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="LOCATIONAVECCHAUFFEUR")
  * @ORM\Entity(repositoryClass=App\Repository\LocationavecchauffeurRepository::class)
  */
-class Locationavecchauffeur
+class Locationavecchauffeur extends Location
 {
     /**
      * @var \DateTime|null
@@ -55,98 +54,148 @@ class Locationavecchauffeur
      */
     private $datehreretourreel;
 
-    /**
-     * @var Location
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Location")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="NUMLOCATION", referencedColumnName="NUMLOCATION")
-     * })
-     */
-    private $numlocation;
 
-    public function getDatelocation(): ?\DateTimeInterface
+
+    /**
+     * Get the value of datelocation
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatelocation()
     {
         return $this->datelocation;
     }
 
-    public function setDatelocation(?\DateTimeInterface $datelocation): self
+    /**
+     * Set the value of datelocation
+     *
+     * @param  \DateTime|null  $datelocation
+     *
+     * @return  self
+     */ 
+    public function setDatelocation($datelocation)
     {
         $this->datelocation = $datelocation;
 
         return $this;
     }
 
-    public function getMontantregle(): ?string
+    /**
+     * Get the value of montantregle
+     *
+     * @return  string|null
+     */ 
+    public function getMontantregle()
     {
         return $this->montantregle;
     }
 
-    public function setMontantregle(?string $montantregle): self
+    /**
+     * Set the value of montantregle
+     *
+     * @param  string|null  $montantregle
+     *
+     * @return  self
+     */ 
+    public function setMontantregle($montantregle)
     {
         $this->montantregle = $montantregle;
 
         return $this;
     }
 
-    public function getDatehredepartprevu(): ?\DateTimeInterface
+    /**
+     * Get the value of datehredepartprevu
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehredepartprevu()
     {
         return $this->datehredepartprevu;
     }
 
-    public function setDatehredepartprevu(?\DateTimeInterface $datehredepartprevu): self
+    /**
+     * Set the value of datehredepartprevu
+     *
+     * @param  \DateTime|null  $datehredepartprevu
+     *
+     * @return  self
+     */ 
+    public function setDatehredepartprevu($datehredepartprevu)
     {
         $this->datehredepartprevu = $datehredepartprevu;
 
         return $this;
     }
 
-    public function getDatehreretourprevu(): ?\DateTimeInterface
+    /**
+     * Get the value of datehreretourprevu
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehreretourprevu()
     {
         return $this->datehreretourprevu;
     }
 
-    public function setDatehreretourprevu(?\DateTimeInterface $datehreretourprevu): self
+    /**
+     * Set the value of datehreretourprevu
+     *
+     * @param  \DateTime|null  $datehreretourprevu
+     *
+     * @return  self
+     */ 
+    public function setDatehreretourprevu($datehreretourprevu)
     {
         $this->datehreretourprevu = $datehreretourprevu;
 
         return $this;
     }
 
-    public function getDatehredepartreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehredepartreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehredepartreel()
     {
         return $this->datehredepartreel;
     }
 
-    public function setDatehredepartreel(?\DateTimeInterface $datehredepartreel): self
+    /**
+     * Set the value of datehredepartreel
+     *
+     * @param  \DateTime|null  $datehredepartreel
+     *
+     * @return  self
+     */ 
+    public function setDatehredepartreel($datehredepartreel)
     {
         $this->datehredepartreel = $datehredepartreel;
 
         return $this;
     }
 
-    public function getDatehreretourreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehreretourreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehreretourreel()
     {
         return $this->datehreretourreel;
     }
 
-    public function setDatehreretourreel(?\DateTimeInterface $datehreretourreel): self
+    /**
+     * Set the value of datehreretourreel
+     *
+     * @param  \DateTime|null  $datehreretourreel
+     *
+     * @return  self
+     */ 
+    public function setDatehreretourreel($datehreretourreel)
     {
         $this->datehreretourreel = $datehreretourreel;
-
-        return $this;
-    }
-
-    public function getNumlocation(): ?Location
-    {
-        return $this->numlocation;
-    }
-
-    public function setNumlocation(?Location $numlocation): self
-    {
-        $this->numlocation = $numlocation;
 
         return $this;
     }

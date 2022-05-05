@@ -2,11 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\ClientRepository;
-
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * Client
@@ -14,7 +10,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  * @ORM\Table(name="CLIENT")
  * @ORM\Entity(repositoryClass=App\Repository\ClientRepository::class)
  */
-class Client extends User implements UserInterface, PasswordAuthenticatedUserInterface
+class Client extends User
 {
     /**
      * @var int|null
@@ -72,214 +68,200 @@ class Client extends User implements UserInterface, PasswordAuthenticatedUserInt
      */
     private $crytpogramme;
 
+
+
+
     /**
-     * @var string|null
+     * Get the value of tel
      *
-     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $nom;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $prenom;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $login;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="MOTDEPASSE", type="string", length=255, nullable=true, options={"fixed"=true})
-     */
-    private $motdepasse;
-
-    /**
-     * @ORM\Column(type="json") */
-    private $roles = [];
-    /**
-     * A visual identifier that represents this user. * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->login;
-    }
-
-    public function getTel(): ?int
+     * @return  int|null
+     */ 
+    public function getTel()
     {
         return $this->tel;
     }
 
-    public function setTel(?int $tel): self
+    /**
+     * Set the value of tel
+     *
+     * @param  int|null  $tel
+     *
+     * @return  self
+     */ 
+    public function setTel($tel)
     {
         $this->tel = $tel;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    /**
+     * Get the value of email
+     *
+     * @return  string|null
+     */ 
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    /**
+     * Set the value of email
+     *
+     * @param  string|null  $email
+     *
+     * @return  self
+     */ 
+    public function setEmail($email)
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getRue(): ?string
+    /**
+     * Get the value of rue
+     *
+     * @return  string|null
+     */ 
+    public function getRue()
     {
         return $this->rue;
     }
 
-    public function setRue(?string $rue): self
+    /**
+     * Set the value of rue
+     *
+     * @param  string|null  $rue
+     *
+     * @return  self
+     */ 
+    public function setRue($rue)
     {
         $this->rue = $rue;
 
         return $this;
     }
 
-    public function getCp(): ?int
+    /**
+     * Get the value of cp
+     *
+     * @return  int|null
+     */ 
+    public function getCp()
     {
         return $this->cp;
     }
 
-    public function setCp(?int $cp): self
+    /**
+     * Set the value of cp
+     *
+     * @param  int|null  $cp
+     *
+     * @return  self
+     */ 
+    public function setCp($cp)
     {
         $this->cp = $cp;
 
         return $this;
     }
 
-    public function getVille(): ?string
+    /**
+     * Get the value of ville
+     *
+     * @return  string|null
+     */ 
+    public function getVille()
     {
         return $this->ville;
     }
 
-    public function setVille(?string $ville): self
+    /**
+     * Set the value of ville
+     *
+     * @param  string|null  $ville
+     *
+     * @return  self
+     */ 
+    public function setVille($ville)
     {
         $this->ville = $ville;
 
         return $this;
     }
 
-    public function getNumerocartebancaire(): ?string
+    /**
+     * Get the value of numerocartebancaire
+     *
+     * @return  string|null
+     */ 
+    public function getNumerocartebancaire()
     {
         return $this->numerocartebancaire;
     }
 
-    public function setNumerocartebancaire(?string $numerocartebancaire): self
+    /**
+     * Set the value of numerocartebancaire
+     *
+     * @param  string|null  $numerocartebancaire
+     *
+     * @return  self
+     */ 
+    public function setNumerocartebancaire($numerocartebancaire)
     {
         $this->numerocartebancaire = $numerocartebancaire;
 
         return $this;
     }
 
-    public function getDateexpiration(): ?string
+    /**
+     * Get the value of dateexpiration
+     *
+     * @return  string|null
+     */ 
+    public function getDateexpiration()
     {
         return $this->dateexpiration;
     }
 
-    public function setDateexpiration(?string $dateexpiration): self
+    /**
+     * Set the value of dateexpiration
+     *
+     * @param  string|null  $dateexpiration
+     *
+     * @return  self
+     */ 
+    public function setDateexpiration($dateexpiration)
     {
         $this->dateexpiration = $dateexpiration;
 
         return $this;
     }
 
-    public function getCrytpogramme(): ?string
+    /**
+     * Get the value of crytpogramme
+     *
+     * @return  string|null
+     */ 
+    public function getCrytpogramme()
     {
         return $this->crytpogramme;
     }
 
-    public function setCrytpogramme(?string $crytpogramme): self
+    /**
+     * Set the value of crytpogramme
+     *
+     * @param  string|null  $crytpogramme
+     *
+     * @return  self
+     */ 
+    public function setCrytpogramme($crytpogramme)
     {
         $this->crytpogramme = $crytpogramme;
 
         return $this;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
 
-    public function setNom(?string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(?string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(?string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->motdepasse;
-    }
-
-    public function setPassword(?string $motdepasse): self
-    {
-        $this->motdepasse = $motdepasse;
-
-        return $this;
-    }
-
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER $roles[] = 'ROLE_USER';
-        return array_unique($roles);
-    }
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-        return $this;
-    }
-
-    /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml. *
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
-    /**
-     * @see UserInterface */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it he // $this->plainPassword = null;
-    }
 }

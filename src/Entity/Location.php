@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\LocationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="LOCATION", indexes={@ORM\Index(name="I_FK_LOCATION_VEHICULE", columns={"IMMATRICULATION"}), @ORM\Index(name="I_FK_LOCATION_CLIENT", columns={"ID"})})
  * @ORM\Entity(repositoryClass=App\Repository\LocationRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"location" = "Location", "avecchauffeur" = "Locationavecchauffeur", "sanschauffeur" = "Locationsanschauffeur"})
  */
 class Location
 {
@@ -84,106 +86,221 @@ class Location
      */
     private $immatriculation;
 
-    public function getNumlocation(): ?int
+
+
+    /**
+     * Get the value of numlocation
+     *
+     * @return  int
+     */ 
+    public function getNumlocation()
     {
         return $this->numlocation;
     }
 
-    public function getDatelocation(): ?\DateTimeInterface
+    /**
+     * Set the value of numlocation
+     *
+     * @param  int  $numlocation
+     *
+     * @return  self
+     */ 
+    public function setNumlocation(int $numlocation)
+    {
+        $this->numlocation = $numlocation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of datelocation
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatelocation()
     {
         return $this->datelocation;
     }
 
-    public function setDatelocation(?\DateTimeInterface $datelocation): self
+    /**
+     * Set the value of datelocation
+     *
+     * @param  \DateTime|null  $datelocation
+     *
+     * @return  self
+     */ 
+    public function setDatelocation($datelocation)
     {
         $this->datelocation = $datelocation;
 
         return $this;
     }
 
-    public function getMontantregle(): ?string
+    /**
+     * Get the value of montantregle
+     *
+     * @return  string|null
+     */ 
+    public function getMontantregle()
     {
         return $this->montantregle;
     }
 
-    public function setMontantregle(?string $montantregle): self
+    /**
+     * Set the value of montantregle
+     *
+     * @param  string|null  $montantregle
+     *
+     * @return  self
+     */ 
+    public function setMontantregle($montantregle)
     {
         $this->montantregle = $montantregle;
 
         return $this;
     }
 
-    public function getDatehredepartprevu(): ?\DateTimeInterface
+    /**
+     * Get the value of datehredepartprevu
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehredepartprevu()
     {
         return $this->datehredepartprevu;
     }
 
-    public function setDatehredepartprevu(?\DateTimeInterface $datehredepartprevu): self
+    /**
+     * Set the value of datehredepartprevu
+     *
+     * @param  \DateTime|null  $datehredepartprevu
+     *
+     * @return  self
+     */ 
+    public function setDatehredepartprevu($datehredepartprevu)
     {
         $this->datehredepartprevu = $datehredepartprevu;
 
         return $this;
     }
 
-    public function getDatehreretourprevu(): ?\DateTimeInterface
+    /**
+     * Get the value of datehreretourprevu
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehreretourprevu()
     {
         return $this->datehreretourprevu;
     }
 
-    public function setDatehreretourprevu(?\DateTimeInterface $datehreretourprevu): self
+    /**
+     * Set the value of datehreretourprevu
+     *
+     * @param  \DateTime|null  $datehreretourprevu
+     *
+     * @return  self
+     */ 
+    public function setDatehreretourprevu($datehreretourprevu)
     {
         $this->datehreretourprevu = $datehreretourprevu;
 
         return $this;
     }
 
-    public function getDatehredepartreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehredepartreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehredepartreel()
     {
         return $this->datehredepartreel;
     }
 
-    public function setDatehredepartreel(?\DateTimeInterface $datehredepartreel): self
+    /**
+     * Set the value of datehredepartreel
+     *
+     * @param  \DateTime|null  $datehredepartreel
+     *
+     * @return  self
+     */ 
+    public function setDatehredepartreel($datehredepartreel)
     {
         $this->datehredepartreel = $datehredepartreel;
 
         return $this;
     }
 
-    public function getDatehreretourreel(): ?\DateTimeInterface
+    /**
+     * Get the value of datehreretourreel
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDatehreretourreel()
     {
         return $this->datehreretourreel;
     }
 
-    public function setDatehreretourreel(?\DateTimeInterface $datehreretourreel): self
+    /**
+     * Set the value of datehreretourreel
+     *
+     * @param  \DateTime|null  $datehreretourreel
+     *
+     * @return  self
+     */ 
+    public function setDatehreretourreel($datehreretourreel)
     {
         $this->datehreretourreel = $datehreretourreel;
 
         return $this;
     }
 
-    public function getId(): ?Client
+    /**
+     * Get the value of iduser
+     *
+     * @return  Client
+     */ 
+    public function getId()
     {
         return $this->id;
     }
 
-    public function setId(?Client $id): self
+    /**
+     * Set the value of iduser
+     *
+     * @param  Client  $iduser
+     *
+     * @return  self
+     */ 
+    public function setId(Client $id)
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getImmatriculation(): ?Vehicule
+    /**
+     * Get the value of immatriculation
+     *
+     * @return  Vehicule
+     */ 
+    public function getImmatriculation()
     {
         return $this->immatriculation;
     }
 
-    public function setImmatriculation(?Vehicule $immatriculation): self
+    /**
+     * Set the value of immatriculation
+     *
+     * @param  Vehicule  $immatriculation
+     *
+     * @return  self
+     */ 
+    public function setImmatriculation(Vehicule $immatriculation)
     {
         $this->immatriculation = $immatriculation;
 
         return $this;
     }
-
-
 }

@@ -38,26 +38,27 @@ class SecurityController extends AbstractController
     /** 
      * @Route("/inscription", name="security_inscription") 
      */ 
-    public function inscription(Client $client = null ,Request $request, ManagerRegistry $doctrine): Response
+    public function inscription(Request $request, ManagerRegistry $doctrine): Response
     { 
         $entityManager = $doctrine->getManager();
-        if(!$client){
-            $client = new Client();
-        }
+        $client = new Client();
 
         $form =$this->createForm(InscriptionFormType::class, $client);
         $form->handleRequest($request);
+
 
         if($form->isSubmitted() && $form->isValid()){
 
             $client->setPassword( 
                 password_hash($client->getPassword(),PASSWORD_BCRYPT)
             );
+
+            
             
         $entityManager->persist($client);
         $entityManager->flush();
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('accueil');
         }
         return $this->render('security/inscription.html.twig', [
             'form' => $form->createView(),

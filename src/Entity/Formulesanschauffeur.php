@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\FormulairesanschauffeurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Formulesanschauffeur
  *
- * @ORM\Table(name="FORMULESANSCHAUFFEUR")
+ * @ORM\Table(name="FORMULESANSCHAUFFEUR", indexes={@ORM\Index(name="IDX_A178D1B9FC42FF9D", columns={"ID_LOCATIONSANS"})})
  * @ORM\Entity(repositoryClass=App\Repository\FormulesanschauffeurRepository::class)
  */
-class Formulesanschauffeur
+class Formulesanschauffeur extends Formule
 {
     /**
      * @var \DateTime|null
@@ -27,72 +26,90 @@ class Formulesanschauffeur
      */
     private $nbkmsinclus;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $libelle;
 
     /**
-     * @var Formule
+     * @var Locationsanschauffeur
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Formule")
+     * @ORM\ManyToOne(targetEntity="Locationsanschauffeur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="ID")
+     *   @ORM\JoinColumn(name="ID_LOCATIONSANS", referencedColumnName="NUMLOCATION")
      * })
      */
-    private $id;
+    private $idLocationsans;
 
-    public function getDuree(): ?\DateTimeInterface
+
+
+    /**
+     * Get the value of duree
+     *
+     * @return  \DateTime|null
+     */ 
+    public function getDuree()
     {
         return $this->duree;
     }
 
-    public function setDuree(?\DateTimeInterface $duree): self
+    /**
+     * Set the value of duree
+     *
+     * @param  \DateTime|null  $duree
+     *
+     * @return  self
+     */ 
+    public function setDuree($duree)
     {
         $this->duree = $duree;
 
         return $this;
     }
 
-    public function getNbkmsinclus(): ?string
+    /**
+     * Get the value of nbkmsinclus
+     *
+     * @return  string|null
+     */ 
+    public function getNbkmsinclus()
     {
         return $this->nbkmsinclus;
     }
 
-    public function setNbkmsinclus(?string $nbkmsinclus): self
+    /**
+     * Set the value of nbkmsinclus
+     *
+     * @param  string|null  $nbkmsinclus
+     *
+     * @return  self
+     */ 
+    public function setNbkmsinclus($nbkmsinclus)
     {
         $this->nbkmsinclus = $nbkmsinclus;
 
         return $this;
     }
 
-    public function getLibelle(): ?string
+
+
+    /**
+     * Get the value of idLocationsans
+     *
+     * @return  Locationsanschauffeur
+     */ 
+    public function getIdLocationsans()
     {
-        return $this->libelle;
+        return $this->idLocationsans;
     }
 
-    public function setLibelle(?string $libelle): self
+    /**
+     * Set the value of idLocationsans
+     *
+     * @param  Locationsanschauffeur  $idLocationsans
+     *
+     * @return  self
+     */ 
+    public function setIdLocationsans(Locationsanschauffeur $idLocationsans)
     {
-        $this->libelle = $libelle;
+        $this->idLocationsans = $idLocationsans;
 
         return $this;
     }
-
-    public function getId(): ?Formule
-    {
-        return $this->id;
-    }
-
-    public function setId(?Formule $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-
 }

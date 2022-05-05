@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localux{% endblock %}
+
+{% block body %}
+
+
+
+<center>
+
+<div class="card" style="width: 50%; margin-top: 2rem; padding-bottom: 2rem; background-color: #2a2b38;">
+<div class="jumbotron">
+			<center>
+				<br>
+				<h1>{{laFormule.libelle}}</h1>
+			</center>
+    </div>
+    <form action="{{path('addReservation')}}" name="form" method="POST">
+        <label for="modeleVoiture">Modèle de voiture :</label><br>
+        <select type="text" id="modele" name="modele" required="required">
+        <option value="">Veuillez choisir une voiture</option>
+        {% for modele in lesModeles %}
+            <option value="{{modele.id}}">{{modele.libelle}}</option>
+        {% endfor %}
+        </select><br><br> 
+        <label for="dateDepartPrevu">Date de départ prévu :</label><br>
+        <input type="datetime-local" id="dateDepart" name="dateDepart" required="required"><br><br>
+        <label for="dateRetourPrevu">Date de retour prévu :</label><br>
+        <input type="datetime-local" id="dateRetour" name="dateRetour" required="required"><br><br>
+        <button class="btn mt-4" type="submit">Réserver</button>
+    </form> 
+    </div>
+</center>
+
+{% endblock %}
